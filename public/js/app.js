@@ -3188,7 +3188,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         axios.post('/api/roles', {
           'name': this.editedItem.name
         }).then(function (res) {
-          return _this7.data.roles.push(res.data.role);
+          return _this7.data.push(res.data.role);
         })["catch"](function (err) {
           return console.warn(err.response);
         });
