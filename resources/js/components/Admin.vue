@@ -304,13 +304,11 @@ localStorage.setItem('theme',false);
       {
           let decide = confirm('Are you sure you want to delete these user`s?')
           if(decide){
-         axios.delete('/api/users/', {
-           'id':this.selected,
-         })
+         axios.delete('/api/users/'+this.selected)
             .then(res => {
                 this.selected.map(val=>{
                   const index = this.data.indexOf(val);
-                  this.data.splice(index, 1)
+                  this.data = res.data.users
                  this.text = "User`s Deleted Successfully!";
                 })
              this.snackbar = true

@@ -2220,14 +2220,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var decide = confirm('Are you sure you want to delete these user`s?');
 
       if (decide) {
-        axios["delete"]('/api/users/', {
-          'id': this.selected
-        }).then(function (res) {
+        axios["delete"]('/api/users/' + this.selected).then(function (res) {
           _this.selected.map(function (val) {
             var index = _this.data.indexOf(val);
 
-            _this.data.splice(index, 1);
-
+            _this.data = res.data.users;
             _this.text = "User`s Deleted Successfully!";
           });
 
