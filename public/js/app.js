@@ -2286,8 +2286,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }); //fetching role data
 
-      axios.get('/api/roles/all/', {}).then(function (res) {
-        _this3.roles = res.data.roles;
+      axios.get('/api/roles/', {}).then(function (res) {
+        _this3.roles = res.data;
       })["catch"](function (err) {
         console.log(err);
       });
