@@ -25,9 +25,5 @@
     "dependencies": {
         "vue-router": "^3.4.8",
         "vuetify": "^2.3.16"
-    },
-    "engines": {
-        "node": "12.x",
-        "npm": ">=6.0.0"
-      }
+    }
 }
