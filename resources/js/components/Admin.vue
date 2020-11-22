@@ -369,7 +369,7 @@ localStorage.setItem('theme',false);
       }
     })
     //fetching role data
-    axios.get('/api/roles/all',{})
+    axios.get('/api/roles/',{})
     .then(res => {
      this.roles = res.data.roles
     })
