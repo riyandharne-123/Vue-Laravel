@@ -29,7 +29,7 @@ class RoleController extends Controller
         $role = Role::create([
           'name'=> $request->name,
         ]);
-        return response()->json(['role' => $role], 200);
+        return response()->json(['roles' => Role::all()], 200);
     }
 
     /**
@@ -44,7 +44,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->name = $request->name;
         $role->save();
-        return response()->json(['role' => $role], 200);
+        return response()->json(['roles' => Role::all()], 200);
     }
 
     /**
@@ -56,16 +56,10 @@ class RoleController extends Controller
     public function destroy($id)
     {
       $role = Role::find($id)->delete();
-      return response()->json(['role'=>$role],200);
+      return response()->json(['roles'=>Role::all()],200);
     }
     public function deleteAll(Request $request)
     {
       Role::whereIn('id',$request->roles)->delete();
-    }
-
-    public function all_roles()
-    {
-      $roles = Role::All();
-      return response()->json(['roles' => $roles], 200);
     }
 }

@@ -388,11 +388,11 @@ localStorage.setItem('theme',false);
           let decide = confirm('Are you sure you want to delete this user?')
                  const index = this.data.indexOf(item);
                   if(decide){
-         axios.delete('/api/users/'+this.editedItem.id)
+         axios.delete('/api/users/'+item.id)
             .then(res => {
                 this.text = "User Deleted Successfully!";
                 this.snackbar = true
-                this.data.users.splice(index, 1)
+                this.data = res.data.users;
             }).catch(err => {
               console.log(err.response)
               this.text = "Error Deleting User"
@@ -430,7 +430,7 @@ localStorage.setItem('theme',false);
         .then(res =>{
             this.text = "User Updated Successfully!";
             this.snackbar = true;
-           this.data = res.data
+           this.data = res.data.users
            })
         .catch(err =>{
             this.text = "User Not Updated!";

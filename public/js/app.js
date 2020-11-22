@@ -2304,11 +2304,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var index = this.data.indexOf(item);
 
       if (decide) {
-        axios["delete"]('/api/users/' + this.editedItem.id).then(function (res) {
+        axios["delete"]('/api/users/' + item.id).then(function (res) {
           _this4.text = "User Deleted Successfully!";
           _this4.snackbar = true;
-
-          _this4.data.users.splice(index, 1);
+          _this4.data = res.data.users;
         })["catch"](function (err) {
           console.log(err.response);
           _this4.text = "Error Deleting User";
@@ -2348,7 +2347,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         _this7.text = "User Updated Successfully!";
         _this7.snackbar = true;
-        _this7.data = res.data;
+        _this7.data = res.data.users;
       })["catch"](function (err) {
         _this7.text = "User Not Updated!";
         _this7.snackbar = true;
@@ -3136,8 +3135,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         axios["delete"]('/api/roles/' + item.id).then(function (res) {
           _this4.text = "Record Deleted Successfully!";
           _this4.snackbar = true;
-
-          _this4.data.splice(index, 1);
+          _this4.data = res.data.roles;
         })["catch"](function (err) {
           console.log(err.response);
           _this4.text = "Error Deleting Record";
@@ -3179,7 +3177,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }).then(function (res) {
           _this7.text = "Record Updated Successfully!";
           _this7.snackbar = true;
-          Object.assign(_this7.data[index], res.data);
+          _this7.data = res.data.roles;
         })["catch"](function (err) {
           return console.warn(err);
         }); //Object.assign(this.data[this.editedIndex], this.editedItem)
@@ -3188,7 +3186,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         axios.post('/api/roles', {
           'name': this.editedItem.name
         }).then(function (res) {
-          return _this7.data.push(res.data);
+          return _this7.data = res.data.roles;
         })["catch"](function (err) {
           return console.warn(err.response);
         });

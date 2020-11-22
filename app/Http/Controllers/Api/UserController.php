@@ -53,8 +53,8 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-      User::where('id' ,$id)->delete();
-      return response()->json(User::all(),200);
+      $user = User::find($id)->delete();
+      return response()->json(['users' => User::all()], 200);
     }
     public function update(Request $request, $id)
     {

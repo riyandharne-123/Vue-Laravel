@@ -383,7 +383,7 @@ localStorage.setItem('theme',false);
             .then(res => {
                 this.text = "Record Deleted Successfully!";
                 this.snackbar = true
-                this.data.splice(index, 1)
+                this.data =res.data.roles;
             }).catch(err => {
               console.log(err.response)
               this.text = "Error Deleting Record"
@@ -421,14 +421,14 @@ localStorage.setItem('theme',false);
          .then(res =>{
             this.text = "Record Updated Successfully!";
             this.snackbar = true;
-            Object.assign(this.data[index], res.data)
+            this.data = res.data.roles
          })
         .catch(err => console.warn(err))
           //Object.assign(this.data[this.editedIndex], this.editedItem)
         } else {
            //save req
         axios.post('/api/roles',{'name' : this.editedItem.name})
-        .then(res => this.data.push(res.data))
+        .then(res => this.data = res.data.roles)
         .catch(err => console.warn(err.response))
         }
         this.close()
