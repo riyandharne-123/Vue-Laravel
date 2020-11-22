@@ -103,7 +103,7 @@
     </v-card-title>
   <v-data-table
     :headers="headers"
-    :items="data.roles"
+    :items="data"
     :search="search"
     class="elevation-1"
     :loading="loading"
@@ -358,7 +358,7 @@ localStorage.setItem('theme',false);
                //fecthing roles data
     axios.get('/api/roles/',{})
     .then(res =>{
- this.data = res.data.roles
+ this.data = res.data
  })
     .catch(err => {
       if(err.response.status == 401)

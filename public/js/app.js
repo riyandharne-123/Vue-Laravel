@@ -3112,7 +3112,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }); //fecthing roles data
 
       axios.get('/api/roles/', {}).then(function (res) {
-        _this3.data = res.data.roles;
+        _this3.data = res.data;
       })["catch"](function (err) {
         if (err.response.status == 401) {
           localStorage.removeItem('token');
@@ -4998,7 +4998,7 @@ var render = function() {
                   staticClass: "elevation-1",
                   attrs: {
                     headers: _vm.headers,
-                    items: _vm.data.roles,
+                    items: _vm.data,
                     search: _vm.search,
                     loading: _vm.loading,
                     "loading-text": "Loading... Please wait",
