@@ -2220,7 +2220,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var decide = confirm('Are you sure you want to delete these user`s?');
 
       if (decide) {
-        axios.post('/api/users/delete/', {
+        axios["delete"]('/api/users/', {
           'id': this.selected
         }).then(function (res) {
           _this.selected.map(function (val) {
@@ -2286,7 +2286,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }); //fetching role data
 
-      axios.get('/api/roles', {}).then(function (res) {
+      axios.get('/api/roles/all/', {}).then(function (res) {
         _this3.roles = res.data.roles;
       })["catch"](function (err) {
         console.log(err);
@@ -3111,8 +3111,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return Promise.reject(error);
       }); //fecthing roles data
 
-      axios.get('/api/roles', {}).then(function (res) {
-        return _this3.data = res.data;
+      axios.get('/api/roles/', {}).then(function (res) {
+        console.log(res.data);
+        _this3.data = res.data;
       })["catch"](function (err) {
         if (err.response.status == 401) {
           localStorage.removeItem('token');
