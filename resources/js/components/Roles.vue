@@ -358,8 +358,7 @@ localStorage.setItem('theme',false);
                //fecthing roles data
     axios.get('/api/roles/',{})
     .then(res =>{
- console.log(res.data)
- this.data = res.data
+ this.data = res.data.roles
  })
     .catch(err => {
       if(err.response.status == 401)

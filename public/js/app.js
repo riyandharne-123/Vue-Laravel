@@ -3112,8 +3112,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }); //fecthing roles data
 
       axios.get('/api/roles/', {}).then(function (res) {
-        console.log(res.data);
-        _this3.data = res.data;
+        _this3.data = res.data.roles;
       })["catch"](function (err) {
         if (err.response.status == 401) {
           localStorage.removeItem('token');
