@@ -2348,7 +2348,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         _this7.text = "User Updated Successfully!";
         _this7.snackbar = true;
-        _this7.data = res.data.users;
+        _this7.data = res.data;
       })["catch"](function (err) {
         _this7.text = "User Not Updated!";
         _this7.snackbar = true;

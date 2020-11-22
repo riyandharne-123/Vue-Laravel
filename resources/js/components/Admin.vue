@@ -430,7 +430,7 @@ localStorage.setItem('theme',false);
         .then(res =>{
             this.text = "User Updated Successfully!";
             this.snackbar = true;
-           this.data = res.data.users
+           this.data = res.data
            })
         .catch(err =>{
             this.text = "User Not Updated!";
