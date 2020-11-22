@@ -304,7 +304,7 @@ localStorage.setItem('theme',false);
       {
           let decide = confirm('Are you sure you want to delete these user`s?')
           if(decide){
-         axios.post('/api/users/delete/', {
+         axios.delete('/api/users/', {
            'id':this.selected,
          })
             .then(res => {
@@ -369,7 +369,7 @@ localStorage.setItem('theme',false);
       }
     })
     //fetching role data
-    axios.get('/api/roles',{})
+    axios.get('/api/roles/all',{})
     .then(res => {
      this.roles = res.data.roles
     })
