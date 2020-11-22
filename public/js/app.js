@@ -3137,7 +3137,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this4.text = "Record Deleted Successfully!";
           _this4.snackbar = true;
 
-          _this4.data.roles.splice(index, 1);
+          _this4.data.splice(index, 1);
         })["catch"](function (err) {
           console.log(err.response);
           _this4.text = "Error Deleting Record";

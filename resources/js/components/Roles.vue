@@ -383,7 +383,7 @@ localStorage.setItem('theme',false);
             .then(res => {
                 this.text = "Record Deleted Successfully!";
                 this.snackbar = true
-                this.data.roles.splice(index, 1)
+                this.data.splice(index, 1)
             }).catch(err => {
               console.log(err.response)
               this.text = "Error Deleting Record"
