@@ -357,7 +357,10 @@ localStorage.setItem('theme',false);
               });
                //fecthing roles data
     axios.get('/api/roles/',{})
-    .then(res => this.data = res.data)
+    .then(res =>{
+ console.log(res.data)
+ this.data = res.data
+ })
     .catch(err => {
       if(err.response.status == 401)
       {
