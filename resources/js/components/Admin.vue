@@ -388,9 +388,7 @@ localStorage.setItem('theme',false);
           let decide = confirm('Are you sure you want to delete this user?')
                  const index = this.data.indexOf(item);
                   if(decide){
-         axios.post('/api/users/delete/',{
-           'id':item.id,
-         })
+         axios.delete('/api/users/'+this.editedItem.id)
             .then(res => {
                 this.text = "User Deleted Successfully!";
                 this.snackbar = true
@@ -425,8 +423,7 @@ localStorage.setItem('theme',false);
       },
 
       save () {
-          axios.post('/api/users/update/',{
-             'id':this.editedItem.id,
+          axios.put('/api/users/'+this.editedItem.id,{
             'name':this.editedItem.name,
             'user_role':this.editedItem.user_role,
           })

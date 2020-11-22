@@ -2304,9 +2304,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var index = this.data.indexOf(item);
 
       if (decide) {
-        axios.post('/api/users/delete/', {
-          'id': item.id
-        }).then(function (res) {
+        axios["delete"]('/api/users/' + this.editedItem.id).then(function (res) {
           _this4.text = "User Deleted Successfully!";
           _this4.snackbar = true;
 
@@ -2344,8 +2342,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     save: function save() {
       var _this7 = this;
 
-      axios.post('/api/users/update/', {
-        'id': this.editedItem.id,
+      axios.put('/api/users/' + this.editedItem.id, {
         'name': this.editedItem.name,
         'user_role': this.editedItem.user_role
       }).then(function (res) {

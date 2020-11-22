@@ -51,14 +51,14 @@ class UserController extends Controller
       return response()->json(User::all(),200);
     }
 
-    public function delete(Request $request)
+    public function destroy($id)
     {
-      User::where('id' ,$request->id)->delete();
+      User::where('id' ,$id)->delete();
       return response()->json(User::all(),200);
     }
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $user = User::find($request->id);
+        $user = User::find($id);
         $user->name = $request->name;
         $user->user_role = $request->user_role;
         $user->save();

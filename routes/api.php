@@ -22,8 +22,6 @@ Route::group(['middleware' => ['auth:api'], 'namespace' => 'Api'],function(){
     Route::resource('roles','RoleController');
     Route::get('/verify_user','UserController@verify');
     Route::post('roles/delete','RoleController@deleteAll');
-    Route::get('/users','UserController@index');
+    Route::resource('/users','UserController');
     Route::get('/roles','RoleController@all_roles');
-    Route::post('/users/delete','UserController@delete');
-    Route::post('/users/update','UserController@update');
 });
