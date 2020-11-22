@@ -428,7 +428,7 @@ localStorage.setItem('theme',false);
         } else {
            //save req
         axios.post('/api/roles',{'name' : this.editedItem.name})
-        .then(res => this.data.push(res.data.role))
+        .then(res => this.data.push(res.data))
         .catch(err => console.warn(err.response))
         }
         this.close()
