@@ -356,7 +356,7 @@ localStorage.setItem('theme',false);
                 return Promise.reject(error);
               });
                //fecthing roles data
-    axios.get('/api/roles/all',{})
+    axios.get('/api/roles/',{})
     .then(res => this.data = res.data)
     .catch(err => {
       if(err.response.status == 401)
