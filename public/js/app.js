@@ -3122,7 +3122,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     editItem: function editItem(item) {
-      this.editedIndex = this.data.roles.indexOf(item);
+      this.editedIndex = this.data.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
@@ -3130,7 +3130,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this4 = this;
 
       var decide = confirm('Are you sure you want to delete this role?');
-      var index = this.data.roles.indexOf(item);
+      var index = this.data.indexOf(item);
 
       if (decide) {
         axios["delete"]('/api/roles/' + item.id).then(function (res) {
@@ -3179,7 +3179,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }).then(function (res) {
           _this7.text = "Record Updated Successfully!";
           _this7.snackbar = true;
-          Object.assign(_this7.data.roles[index], res.data.role);
+          Object.assign(_this7.data[index], res.data);
         })["catch"](function (err) {
           return console.warn(err);
         }); //Object.assign(this.data[this.editedIndex], this.editedItem)

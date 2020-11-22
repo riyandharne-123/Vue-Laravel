@@ -369,7 +369,7 @@ localStorage.setItem('theme',false);
     })
       },
       editItem (item) {
-        this.editedIndex = this.data.roles.indexOf(item)
+        this.editedIndex = this.data.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
@@ -377,7 +377,7 @@ localStorage.setItem('theme',false);
 
       deleteItem (item) {
           let decide = confirm('Are you sure you want to delete this role?')
-                 const index = this.data.roles.indexOf(item);
+                 const index = this.data.indexOf(item);
                   if(decide){
          axios.delete('/api/roles/'+item.id)
             .then(res => {
@@ -421,7 +421,7 @@ localStorage.setItem('theme',false);
          .then(res =>{
             this.text = "Record Updated Successfully!";
             this.snackbar = true;
-            Object.assign(this.data.roles[index], res.data.role)
+            Object.assign(this.data[index], res.data)
          })
         .catch(err => console.warn(err))
           //Object.assign(this.data[this.editedIndex], this.editedItem)
