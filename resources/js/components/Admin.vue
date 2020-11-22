@@ -392,7 +392,7 @@ localStorage.setItem('theme',false);
             .then(res => {
                 this.text = "User Deleted Successfully!";
                 this.snackbar = true
-                this.data.splice(index, 1)
+                this.data.users.splice(index, 1)
             }).catch(err => {
               console.log(err.response)
               this.text = "Error Deleting User"
